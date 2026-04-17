@@ -2,7 +2,7 @@
 
 **Mission**: Mina returns from her patrol and tells Gord, "I found a few remaining CVEs, but they are not dangerous. We can let them be."
 
-![Mina finds a depressed CVE](images/asgard-useless.png)
+![Mina finds a depressed CVE](https://dockersecurity.io/commandos-asgard/asgard-useless.png)
 
 **Real-world context**: Not all CVEs are exploitable in your specific context. VEX (Vulnerability Exploitability eXchange) allows you to mark CVEs as not applicable to reduce alert noise and focus on real threats.
 

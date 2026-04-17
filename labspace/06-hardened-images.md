@@ -2,7 +2,7 @@
 
 **Mission**: The Commandos reach the golden gates of a heavily fortified district. Thor says, "This district is heavily fortified, no CVE can get in here." The district is guarded by Hardened Warriors led by **Artemisia**, who says "I know how to recognize CVEs, I will join you."
 
-![Hardened Images](images/asgard-4.png)
+![Hardened Images](https://dockersecurity.io/commandos-asgard/asgard-4.png)
 
 **Real-world context**: Docker Hardened Images (DHI) are near-zero-CVE base images maintained by Docker, providing a more secure foundation with dramatically reduced attack surface.
 

@@ -2,7 +2,7 @@
 
 Welcome to the **Docker Commandos** workshop. In this mission, you will join an elite team of security specialists to defend Asgard from a shadow monster outbreak known as CVEs.
 
-![Docker Commandos](images/commandos-v5.png)
+![Docker Commandos](https://dockersecurity.io/blog-img/commandos-v5.png)
 
 ## Meet your team:
 
@@ -19,7 +19,7 @@ Welcome to the **Docker Commandos** workshop. In this mission, you will join an 
 
 Thor enters Odin's chamber hastily, "Father, Asgard is under attack! Shadow monsters called CVEs are in Asgard and my hammer Mjolnir can't destroy them!" Odin looks at him calmly, "**Summon the Docker Commandos**!"
 
-![Docker Commandos arrive at Asgard](images/asgard-1.png)
+![Docker Commandos arrive at Asgard](https://dockersecurity.io/commandos-asgard/asgard-1.png)
 
 ## Command Dependencies
 

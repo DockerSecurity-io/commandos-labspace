@@ -2,7 +2,7 @@
 
 **Mission**: Gord orders Jack, Agent Null, and Mina to scout the remaining districts of Asgard for hidden CVEs. "Let's hunt some CVEs!" says Null.
 
-![Scout hunting for CVEs](images/asgard-3.png)
+![Scout hunting for CVEs](https://dockersecurity.io/commandos-asgard/asgard-3.png)
 
 **Real-world context**: Docker Scout analyzes your images for vulnerabilities by cross-referencing the SBOM with CVE databases, providing actionable security intelligence.
 

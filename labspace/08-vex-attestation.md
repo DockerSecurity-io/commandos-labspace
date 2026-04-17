@@ -2,7 +2,7 @@
 
 **Mission**: The Valkyrie issues "Check Exemption" badges for the Exempted CVEs, and adds them to the checkpoints. "The Exempted CVEs can pass through the checkpoints without being flagged, as they are not a threat to us."
 
-![Mina found a new warrior when fighting CVEs](images/asgard-4.5.png)
+![Mina found a new warrior when fighting CVEs](https://dockersecurity.io/commandos-asgard/asgard-4.5.png)
 
 **Real-world context**: VEX attestations are cryptographically signed exemptions that travel with your image, providing tamper-proof vulnerability exception documentation that's verified automatically.
 

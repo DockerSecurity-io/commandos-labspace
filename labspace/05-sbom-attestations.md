@@ -2,7 +2,7 @@
 
 **Mission**: The Valkyrie sets up a camera with face recognition and says, "I can generate an ID card for everyone in Asgard, and attach it to their database face record. That way, we can verify their identity at the checkpoints."
 
-![SBOM Attestations](images/asgard-3.1.png)
+![SBOM Attestations](https://dockersecurity.io/commandos-asgard/asgard-3.1.png)
 
 **Real-world context**: SBOM attestations are SBOMs generated during build time and cryptographically signed, providing tamper-proof component information that travels with your image.
 

@@ -2,7 +2,7 @@
 
 **Mission**: Rothütle asks Thor for a list of all Asgard residents. Now the Commandos can cross-reference with the CVE database to identify which residents are CVEs.
 
-![Rothütle asking for the SBOM](images/asgard-2.png)
+![Rothütle asking for the SBOM](https://dockersecurity.io/commandos-asgard/asgard-2.png)
 
 **Real-world context**: SBOM (Software Bill of Materials) lists all components, libraries, and dependencies in your software. Essential for identifying vulnerabilities in your supply chain.
 

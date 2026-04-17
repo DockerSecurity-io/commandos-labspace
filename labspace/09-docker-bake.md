@@ -2,7 +2,7 @@
 
 **Mission**: As the Commandos defeated the CVEs in Asgard, they decided to throw a party to celebrate their victory, and discuss the security measures they can implement systematically.
 
-![The Commandos celebrate their victory](images/asgard-5.png)
+![The Commandos celebrate their victory](https://dockersecurity.io/commandos-asgard/asgard-5.png)
 
 **Real-world context**: Docker Bake allows you to define complex build configurations in files, making security practices repeatable, reviewable, and automated across your entire organization.
 
