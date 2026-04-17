@@ -2,23 +2,6 @@ services:
   configurator:
     environment:
       PROJECT_CLONE_URL: https://github.com/aerabi/docker-commandos-labspace
-    volumes: !override
-      - type: volume
-        source: labspace-content
-        target: /project
-      - type: volume
-        source: labspace-instructions
-        target: /instructions
-      - type: volume
-        source: docker-creds
-        target: /docker-creds
-      - type: volume
-        source: labspace-support
-        target: /etc/labspace-support
-      - type: bind
-        source: .
-        target: /dev-content
-        read_only: true
 
   workspace:
     image: aerabi/docker-commandos-workspace
