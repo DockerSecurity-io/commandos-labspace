@@ -1,0 +1,10 @@
+services:
+  configurator:
+    environment:
+      PROJECT_CLONE_URL: https://github.com/aerabi/docker-commandos-labspace
+
+  workspace:
+    build:
+      context: .
+      dockerfile: labspace/Dockerfile.workspace
+    image: aerabi/docker-commandos-workspace
