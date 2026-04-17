@@ -12,6 +12,20 @@ This repository contains the content and configuration for the **Docker Commando
 
 To preview or run this labspace locally, you can use the `labspace` CLI or Docker Compose with the provided `compose.yaml`.
 
+## Launch the Labspace
+
+To launch the published Labspace directly, run:
+
+```bash
+docker compose -f oci://docker.io/aerabi/docker-commandos-labspace up -d
+```
+
+Then open your browser at `http://localhost:3030`.
+
+### Using the Docker Desktop extension
+
+If you have the Labspace extension installed (`docker extension install dockersamples/labspace-extension` if not), you can also [click this link](https://open.docker.com/dashboard/extension-tab?extensionId=dockersamples/labspace-extension&location=aerabi/docker-commandos-labspace&title=Docker%20Commandos%3A%20Asgard%20Mission) to launch the Labspace.
+
 ### Using Docker Compose
 
 The root `compose.yaml` uses the official Docker Labspace development base and the repo-root `compose.override.yaml` configures the custom workspace image.
