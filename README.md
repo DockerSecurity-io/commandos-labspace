@@ -1,20 +1,17 @@
 # Docker Commandos Labspace
 
-This repository contains the content and configuration for the **Docker Commandos: Asgard Mission** labspace. This labspace is designed to be run in interactive environments similar to Killercoda or Docker's Labspace platform.
+This repository contains the content and configuration for the **Docker Commandos: Asgard Mission** labspace. This labspace is designed to be run in interactive environments similar to Killercoda.
 
 ## Structure
 
 - `labspace.yaml`: The main configuration file defining the metadata, title, and sequence of sections.
 - `*.md`: Markdown files for each section of the lab, following the Docker Commandos storyline.
-- `images/`: Visual assets used throughout the lab, including mission artwork and character portraits.
-
-## Running Locally
-
-To preview or run this labspace locally, you can use the `labspace` CLI or Docker Compose with the provided `compose.yaml`.
 
 ## Launch the Labspace
 
-To launch the published Labspace directly, run:
+### OCI Artifact (recommended)
+
+No clone needed, run directly from the published OCI artifact:
 
 ```bash
 docker compose -f oci://docker.io/aerabi/docker-commandos-labspace up -d
@@ -22,29 +19,32 @@ docker compose -f oci://docker.io/aerabi/docker-commandos-labspace up -d
 
 Then open your browser at `http://localhost:3030`.
 
-### Using the Docker Desktop extension
+### Docker Desktop extension
 
-If you have the Labspace extension installed (`docker extension install dockersamples/labspace-extension` if not), you can also [click this link](https://open.docker.com/dashboard/extension-tab?extensionId=dockersamples/labspace-extension&location=aerabi/docker-commandos-labspace&title=Docker%20Commandos%3A%20Asgard%20Mission) to launch the Labspace.
+To use the Docker Desktop extension, you need to have the Labspace extension installed. If not:
 
-### Using Docker Compose
+```bash
+docker extension install dockersamples/labspace-extension
+```
 
-The root `compose.yaml` uses the official Docker Labspace development base and the repo-root `compose.override.yaml` configures the custom workspace image.
+Then [click this link](https://open.docker.com/dashboard/extension-tab?extensionId=dockersamples/labspace-extension&location=aerabi/docker-commandos-labspace&title=Docker%20Commandos%3A%20Asgard%20Mission) to launch the Labspace.
 
-Run it from the repository root:
+### Local development (from clone)
+
+If you want to run the Labspace from a local clone, you can do so with Docker Compose. First, clone the repository:
+
+```bash
+git clone https://github.com/DockerSecurity-io/commandos-labspace.git
+cd commandos-labspace
+```
+
+Then run:
 
 ```bash
 docker compose up -d
 ```
 
-Then, open your browser at `http://localhost:3030`.
-
-### Using OCI Artifacts (Future)
-
-Once this labspace is published to an OCI registry, it can be launched directly without cloning:
-
-```bash
-docker compose -f oci://<your-registry>/docker-commandos-labspace up -d
-```
+Then open your browser at `http://localhost:3030`.
 
 ## Content Overview
 
@@ -59,10 +59,3 @@ The lab walks through 10 security "Commandos":
 8. **Docker Bake**: Complex build automation.
 9. **Cosign**: Cryptographic signing.
 0. **Zero-Day**: Defense-in-depth.
-
-## Assets
-
-Images are sourced from the `dockersecurity.io` repository and include:
-- Mission-specific artwork (`asgard-*.png`)
-- Team portraits (`po-*.png`)
-- Team posters (`commandos-v5.png`)
