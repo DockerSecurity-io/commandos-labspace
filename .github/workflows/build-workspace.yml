@@ -3,7 +3,7 @@ name: Build and Push Workspace Image
 on:
   push:
     branches:
-      - main
+      - master
     paths:
       - 'labspace/Dockerfile.workspace'
       - 'project/**'
