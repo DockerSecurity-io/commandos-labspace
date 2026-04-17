@@ -1,0 +1,10 @@
+include:
+  - oci://dockersamples/labspace-base
+
+services:
+  configurator:
+    environment:
+      PROJECT_CLONE_URL: https://github.com/aerabi/docker-commandos-labspace
+
+  workspace:
+    image: aerabi/docker-commandos-workspace
