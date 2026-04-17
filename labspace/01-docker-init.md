@@ -2,6 +2,8 @@
 
 **Mission**: Docker Commandos arrive at Asgard and initiate their mission to contain the outbreak. Gord orders, "Set up a command center for us". Valkyrie and Agent Null start setting up the command center, while Jack and Evie secure the perimeter.
 
+![Docker Commandos setting up the command center](https://dockersecurity.io/commandos-asgard/asgard-init.png)
+
 **Real-world context**: Docker Init creates secure, production-ready Dockerfiles using established best practices, reducing the likelihood of security misconfigurations from day one.
 
 Docker Init is a command to initialize a Docker project with a Dockerfile and other necessary files:
@@ -12,6 +14,9 @@ Docker Init is a command to initialize a Docker project with a Dockerfile and ot
 - `README.Docker.md`
 
 ### Usage
+
+> [!NOTE]  
+> The command `docker init` is not available in the Labspace experience, so you can go to `flask-init` directly to see the generated files, and carry out the rest of the lab from there.
 
 On the repo, go to the Flask example directory:
 

@@ -2,6 +2,8 @@
 
 The hunt is complete, but Agent Null has escaped to the Black Forest. The Commandos have successfully defended Asgard using systematic security practices.
 
+![10 Docker Commandos in Asgard](https://dockersecurity.io/blog-img/10-commandos-asgard.png)
+
 ## Victory Conditions
 
 - ✅ All builds generate SBOM and provenance attestations

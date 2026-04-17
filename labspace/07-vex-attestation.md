@@ -2,7 +2,7 @@
 
 **Mission**: The Valkyrie issues "Check Exemption" badges for the Exempted CVEs, and adds them to the checkpoints. "The Exempted CVEs can pass through the checkpoints without being flagged, as they are not a threat to us."
 
-![Mina found a new warrior when fighting CVEs](https://dockersecurity.io/commandos-asgard/asgard-4.5.png)
+![Mina issues a VEX attestation for the exempted CVE](https://dockersecurity.io/commandos-asgard/asgard-vex.png)
 
 **Real-world context**: VEX attestations are cryptographically signed exemptions that travel with your image, providing tamper-proof vulnerability exception documentation that's verified automatically.
 
@@ -22,6 +22,8 @@ Next time, you won't need to pass the VEX statement to the Scout scan, as it is 
 ```bash
 docker scout cves aerabi/flask-hello:with-sbom
 ```
+
+![Mina found a new warrior when fighting CVEs](https://dockersecurity.io/commandos-asgard/asgard-4.5.png)
 
 ### Exercises
 

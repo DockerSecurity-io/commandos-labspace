@@ -2,6 +2,8 @@
 
 **Mission**: With the party still going, Evie steps away from the celebration and quietly gets to work. One by one, she signs each SBOM attestation and each VEX attestation with her special pen, ensuring their originality. "A document without a signature is just a rumor," she says.
 
+![Evie signing the SBOM and VEX attestations](https://dockersecurity.io/commandos-asgard/asgard-sign.png)
+
 **Real-world context**: Cosign (part of the Sigstore project) lets you cryptographically sign container images and attestations. Consumers can then verify those signatures before running anything.
 
 ### Usage

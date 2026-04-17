@@ -2,6 +2,8 @@
 
 **Mission**: During the party, Artemisia and Rothütle come to Gord, "Artemisia says she senses something off with Null," Rothütle adds, "I think Null is a traitor, he might be working with the CVEs." As they are talking, they notice Null throwing a smoke bomb and disappearing.
 
+![Null throwing a smoke bomb](https://dockersecurity.io/commandos-asgard/asgard-6.png)
+
 **Real-world context**: Zero-day vulnerabilities are unknown to security systems. Defense requires proactive security measures that protect against unknown attack vectors.
 
 ### Usage
