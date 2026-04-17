@@ -10,26 +10,26 @@ description: |
 
 sections:
   - title: Introduction
-    contentPath: 01-introduction.md
+    contentPath: 00-introduction.md
   - title: Commando 1. Docker Init
-    contentPath: 02-docker-init.md
+    contentPath: 01-docker-init.md
   - title: Commando 2. SBOM
-    contentPath: 03-sbom.md
+    contentPath: 02-sbom.md
   - title: Commando 3. Scout
-    contentPath: 04-scout.md
+    contentPath: 03-scout.md
   - title: Commando 4. SBOM Attestations
-    contentPath: 05-sbom-attestations.md
+    contentPath: 04-sbom-attestations.md
   - title: Commando 5. Hardened Images
-    contentPath: 06-hardened-images.md
+    contentPath: 05-hardened-images.md
   - title: Commando 6. The Exempted CVEs
-    contentPath: 07-exempted-cves.md
+    contentPath: 06-exempted-cves.md
   - title: Commando 7. VEX Attestation
-    contentPath: 08-vex-attestation.md
+    contentPath: 07-vex-attestation.md
   - title: Commando 8. Docker Bake
-    contentPath: 09-docker-bake.md
+    contentPath: 08-docker-bake.md
   - title: Commando 9. Cosign
-    contentPath: 10-cosign.md
+    contentPath: 09-cosign.md
   - title: Commando 0. The Zero-Day
-    contentPath: 11-zero-day.md
+    contentPath: 10-zero-day.md
   - title: Final Mission
-    contentPath: 12-final-mission.md
+    contentPath: 11-final-mission.md
