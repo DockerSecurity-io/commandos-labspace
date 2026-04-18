@@ -7,9 +7,6 @@ on:
   push:
     branches:
       - master
-    paths:
-      - 'labspace/**'
-      - 'project/**'
   workflow_dispatch:
 
 jobs:
