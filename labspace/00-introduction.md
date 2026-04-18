@@ -4,7 +4,7 @@ Welcome to the **Docker Commandos** workshop. In this mission, you will join an 
 
 ![Docker Commandos](https://dockersecurity.io/blog-img/commandos-v5.png)
 
-From left to right:
+From left to right:x
 
 - **Agent Null** 🎭 - The masked hunter
 - **Wilhelmina (Mina)** 🧛‍♀️ - The undead assassin
@@ -14,6 +14,14 @@ From left to right:
 - **The Valkyrie** 🛡️ - The identity specialist
 - **Jack** 🤖 - The cyborg soldier
 - **Evie** 🤠 - The sharpshooter
+
+## Lock and Load
+
+Before we start the mission, let's download all of the necessary Docker images used for the workshop:
+
+```bash
+make pull
+```
 
 ## Prologue: The Attack on Asgard
 
