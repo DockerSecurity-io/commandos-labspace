@@ -51,14 +51,22 @@ Check the SBOM attestations for the image again:
 docker scout cves cpp-hello:with-build-stage
 ```
 
+Scout should say:
+
+```
+SBOM obtained from attestation, 208 packages found
+```
+
 ![SBOM Attestations](https://dockersecurity.io/commandos-asgard/asgard-3.1.png)
 
 ## Exercises
 
 - 4.1. To store the BuildKit SBOM locally, you can set the output format to `local` and specify the destination directory. Use the following command to build the image and save the SBOM in the current directory:
 
-    ```shell
-    docker buildx build --sbom=true --sbom-output=type=local,dest=. -t test-image .`
+    ```bash
+    docker buildx build \
+      --sbom=true \
+      --output type=local,dest=out .
     ```
 
     The generated SBOM can be used later.

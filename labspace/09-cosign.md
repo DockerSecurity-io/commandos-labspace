@@ -47,14 +47,16 @@ cd ~/project/cpp
 If the SBOM file is not there, build the image again with the `local` output format:
 
 ```bash
-docker buildx build --sbom=true --sbom-output=type=local,dest=. -t test-image .`
+docker buildx build \
+  --sbom=true \
+  --output type=local,dest=out .
 ```
 
 Now, let's attach the SBOM attestation to the image:
 
 ```bash
 docker scout attestation add \
-    --file sbom-attestations/sbom.spdx.json \
+    --file out/sbom.spdx.json \
     $DOCKER_USERNAME/flask-server:latest
 ```
 

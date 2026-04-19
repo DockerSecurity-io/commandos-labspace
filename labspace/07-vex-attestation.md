@@ -11,29 +11,71 @@
 One can add a VEX attestation to an image after it was pushed to the registry using Docker Scout. Let's push the `flask-server` image to the registry first, using your own Docker Hub username:
 
 ```bash
-export $DOCKER_USERNAME=your-docker-hub-username
+export DOCKER_USERNAME=your-docker-hub-username
 ```
 
-Then let's push the image:
+Then build the image once more with SBOM and provenance attestations:
 
 ```bash
-docker tag flask-server:latest $DOCKER_USERNAME/flask-server:latest
-docker push $DOCKER_USERNAME/flask-server:latest
+docker build \
+    --sbom=true \
+    --province=true \
+    -t $DOCKER_USERNAME/flask-server:attest \
+    --push .
 ```
 
-Add VEX attestation to image:
+> [!NOTE]
+> Provenance attestations record the build information, such as the build time, builder, and source code repository. This information can be useful for traceability and debugging.
+
+Before adding the VEX attestation, let's check the CVEs for the image to pick a nice high-severity CVE to exempt:
+
+```bash
+docker scout cves $DOCKER_USERNAME/flask-server:attest
+```
+
+Recreate the VEX statement with the correct PURL for the image being pushed and target the high-severity OpenSSL CVE:
+
+```bash
+vexctl create \
+  --author="mohammad-ali@aerabi.com" \
+  --product="pkg:docker/$DOCKER_USERNAME/flask-server@attest" \
+  --subcomponents="pkg:deb/debian/openssl@3.5.5-1~deb13u1" \
+  --vuln="CVE-2026-28390" \
+  --status="not_affected" \
+  --justification="vulnerable_code_not_in_execute_path" \
+  --file="vex-statements/CVE-2026-28390.vex.json"
+```
+
+Then, add the VEX attestation to the image:
 
 ```bash
 docker scout attestation add \
-  --file vex-statements/CVE-2025-45582.vex.json \
+  --file vex-statements/CVE-2026-28390.vex.json \
   --predicate-type https://openvex.dev/ns/v0.2.0 \
-  $DOCKER_USERNAME/flask-server:latest
+  $DOCKER_USERNAME/flask-server:attest
 ```
 
-Next time, you won't need to pass the VEX statement to the Scout scan, as it is already attached to the image:
+Let's check the CVEs for the image again:
 
 ```bash
-docker scout cves $DOCKER_USERNAME/flask-server:latest
+docker scout cves $DOCKER_USERNAME/flask-server:attest
+```
+
+The result says:
+
+```
+    ✗ HIGH CVE-2026-28390
+      https://scout.docker.com/v/CVE-2026-28390
+      Affected range : <3.5.5-1~deb13u2                                   
+      Fixed version  : 3.5.5-1~deb13u2                                    
+      VEX            : not affected [vulnerable code not in execute path] 
+                     : mohammad-ali@aerabi.com
+```
+
+Now, let's check all the attestations on the image:
+
+```bash
+docker scout attestation list $DOCKER_USERNAME/flask-server:attest
 ```
 
 ![Mina found a new warrior when fighting CVEs](https://dockersecurity.io/commandos-asgard/asgard-4.5.png)

@@ -26,7 +26,7 @@ Create a VEX statement for one of the CVEs:
 
 ```bash
 vexctl create \
-  --author="your-email@example.com" \
+  --author="mohammad-ali@aerabi.com" \
   --product="pkg:docker/flask-server@latest" \
   --subcomponents="pkg:deb/debian/tar@1.35+dfsg-3.1" \
   --vuln="CVE-2025-45582" \
