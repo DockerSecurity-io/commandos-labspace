@@ -13,7 +13,7 @@ Docker Init is a command to initialize a Docker project with a Dockerfile and ot
 - `.dockerignore`
 - `README.Docker.md`
 
-### Usage
+## Usage
 
 Go to the `flask` directory and start the application using Docker Compose:
 
@@ -37,3 +37,5 @@ docker images
 
 > [!NOTE]
 > The files in this directory were created by `docker init`, which is not available in the Labspace experience. In your local machine, you can navigate to the `flask-uninit` directory and run `docker init` to generate the same files.
+
+To learn about using `docker init` with a Java 26 project, check out the [Dockerize Java 26 with Docker Init](https://www.dockersecurity.io/blog/dockerize-java-26-with-docker-init) post.

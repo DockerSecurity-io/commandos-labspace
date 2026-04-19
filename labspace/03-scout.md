@@ -6,7 +6,7 @@
 
 **Real-world context**: Docker Scout analyzes your images for vulnerabilities by cross-referencing the SBOM with CVE databases, providing actionable security intelligence.
 
-### Usage
+## Usage
 
 To check the vulnerabilities in the image, run:
 
@@ -21,14 +21,35 @@ Try comparing base images for security:
 ```bash
 # Standard Node image
 docker scout cves node:20
-
-# Alpine Node image
-docker scout cves node:20-alpine
-
-# Which is more secure?
 ```
 
-### Exercises
+Versus:
+
+```bash
+# Alpine Node image
+docker scout cves node:20-alpine
+```
+
+Which one has fewer vulnerabilities?
+
+## CVEs for Multi-Stage Builds
+
+Let's go to the C++ directory and build the image:
+
+```bash
+cd ~/project/cpp
+docker build -t cpp-hello .
+```
+
+Then check the CVEs:
+
+```bash
+docker scout cves cpp-hello
+```
+
+The output will show that Scout has "indexed 0 packages". This is because the SBOM generated for this image only includes the final stage, which doesn't have any packages.
+
+## Exercises
 
 - 3.1. Build an application with an old base image (e.g., `node:14`) and compare Scout results with newer versions.
 - 3.2. Use the `--details` flag to get more information about specific vulnerabilities.

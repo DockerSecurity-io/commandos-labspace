@@ -6,7 +6,7 @@
 
 **Real-world context**: Zero-day vulnerabilities are unknown to security systems. Defense requires proactive security measures that protect against unknown attack vectors.
 
-### Usage
+## Usage
 
 Implement defense-in-depth:
 
@@ -14,7 +14,7 @@ Implement defense-in-depth:
 2. **Linux Security**: Apply AppArmor/Seccomp profiles.
 3. **Runtime Monitoring**: Use tools like Falco to detect anomalies.
 
-### Exercises
+## Exercises
 
 - 0.1. Design a zero-day defense strategy with layered security controls.
 - 0.2. Create incident response procedures for unknown threat detection.

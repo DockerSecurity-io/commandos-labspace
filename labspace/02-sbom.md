@@ -6,7 +6,7 @@
 
 **Real-world context**: SBOM (Software Bill of Materials) lists all components, libraries, and dependencies in your software. Essential for identifying vulnerabilities in your supply chain.
 
-### Usage
+## Usage
 
 In the Docker Init step, we built an image with tag `flask-server:latest`. Let's check the SBOM for this image:
 
@@ -17,12 +17,28 @@ docker scout sbom flask-server:latest --format list
 The output will show the SBOM in a table format. Try to export it to a SPDX file:
 
 ```bash
-docker sbom flask-server:latest --format spdx --output sbom.spdx.json
+docker scout sbom flask-server:latest --format spdx --output sbom.spdx.json
 ```
 
 If you investigate the file, you will see that it contains a list of all the packages used in the image, their versions, and the licenses.
 
-### Exercises
+## Exercises
 
-- 2.1. Use `docker scout sbom --help` to check available formats for the SBOM output.
-- 2.2. Compare different base images: `docker sbom node:22` vs `docker sbom node:22-alpine` - which has fewer packages?
+- 2.1. Use the following command to check available formats for the SBOM output:
+
+    ```bash
+    docker scout sbom --help
+    ```
+
+     Then, export the SBOM in a different format (e.g., CycloneDX) and compare it with the SPDX output.
+- 2.2. Compare different base images:
+
+    ```bash
+    docker scout sbom node:22 --format list
+    ```
+  
+    Versus:
+
+    ```bash
+    docker scout sbom node:22-alpine --format list
+    ```

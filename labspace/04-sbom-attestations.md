@@ -6,7 +6,13 @@
 
 **Real-world context**: SBOM attestations are SBOMs generated during build time and cryptographically signed, providing tamper-proof component information that travels with your image.
 
-### Usage
+## Usage
+
+Make sure you're in the `cpp` directory:
+
+```bash
+cd ~/project/cpp
+```
 
 SBOM attestations are generated during the build:
 
@@ -26,6 +32,7 @@ It will say:
 SBOM obtained from attestation, 0 packages found
 ```
 
+The SBOM attestation is loaded, but it still has no packages.
 To include the build stage packages in the SBOM, add the following line to the beginning of the `Dockerfile`:
 
 ```dockerfile
@@ -46,7 +53,12 @@ docker scout cves cpp-hello:with-build-stage
 
 ![SBOM Attestations](https://dockersecurity.io/commandos-asgard/asgard-3.1.png)
 
-### Exercises
+## Exercises
 
-- 4.1. Store the SBOM locally: `docker buildx build --sbom=true --sbom-output=type=local,dest=. -t test-image .`
-- 4.2. Compare SBOM results with and without `BUILDKIT_SBOM_SCAN_STAGE=true` for a multi-stage build.
+- 4.1. To store the BuildKit SBOM locally, you can set the output format to `local` and specify the destination directory. Use the following command to build the image and save the SBOM in the current directory:
+
+    ```shell
+    docker buildx build --sbom=true --sbom-output=type=local,dest=. -t test-image .`
+    ```
+
+    The generated SBOM can be used later.

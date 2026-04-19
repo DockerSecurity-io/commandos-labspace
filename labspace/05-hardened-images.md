@@ -6,7 +6,7 @@
 
 **Real-world context**: Docker Hardened Images (DHI) are near-zero-CVE base images maintained by Docker, providing a more secure foundation with dramatically reduced attack surface.
 
-### Usage
+## Usage
 
 Build an application with hardened base:
 
@@ -26,12 +26,16 @@ Compare standard vs hardened Node images:
 ```bash
 # Standard Node image
 docker scout cves node:25
+```
 
+Versus:
+
+```bash
 # Hardened Node image
 docker scout cves dhi.io/node:25
 ```
 
-### Exercises
+## Exercises
 
 - 5.1. Audit your current base image usage and calculate CVE reduction potential with hardened images.
 - 5.2. Build the same application with standard and hardened base images, compare Scout results.
