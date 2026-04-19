@@ -20,7 +20,11 @@ The output will show the SBOM in a table format. Try to export it to a SPDX file
 docker scout sbom flask-server:latest --format spdx --output sbom.spdx.json
 ```
 
-If you investigate the file, you will see that it contains a list of all the packages used in the image, their versions, and the licenses.
+If you investigate the file, you will see that it contains a list of all the packages used in the image, their versions, and the licenses:
+
+```bash
+jq . sbom.spdx.json | less
+```
 
 ## Exercises
 

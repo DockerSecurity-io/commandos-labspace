@@ -8,13 +8,25 @@
 
 ## Usage
 
+In the previous section, we rebuilt the `flask-server` image with a rather long build command:
+
+```bash
+docker build \
+    --sbom=true \
+    --province=true \
+    -t $DOCKER_USERNAME/flask-server:attest \
+    --push .
+```
+
+Adding more options to the build command, such as multi-platform builds, can make it even more unwieldy. Docker Bake allows you to define all these options in a file and run the build with a simple command.
+
 Examine the `docker-bake.hcl` file:
 
 ```hcl
 target "default" {
   context = "."
   dockerfile = "Dockerfile"
-  tags = ["flask-hello:latest"]
+  tags = ["flask-server:tasty"]
 
   attest = [
     {
@@ -36,7 +48,7 @@ Alter the `docker-bake.hcl` file to include multi-platform builds:
 target "default" {
   context = "."
   dockerfile = "Dockerfile"
-  tags = ["flask-hello:latest"]
+  tags = ["flask-server:tasty"]
   platforms = ["linux/amd64", "linux/arm64"]
   
   attest = [

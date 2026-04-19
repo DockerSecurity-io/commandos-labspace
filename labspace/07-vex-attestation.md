@@ -46,6 +46,8 @@ vexctl create \
   --file="vex-statements/CVE-2026-28390.vex.json"
 ```
 
+![Mina issues a card and gives it to the CVE](https://dockersecurity.io/commandos-asgard/asgard-vex-card.png)
+
 Then, add the VEX attestation to the image:
 
 ```bash

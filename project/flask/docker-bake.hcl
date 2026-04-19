@@ -1,5 +1,11 @@
 target "default" {
   context = "."
   dockerfile = "Dockerfile"
-  tags = ["flask-hello:latest"]
+  tags = ["flask-server:tasty"]
+
+  attest = [
+    {
+      type = "sbom"
+    }
+  ]
 }

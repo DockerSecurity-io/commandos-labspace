@@ -1,6 +1,10 @@
 # Final Mission: Complete Security Pipeline
 
-The hunt is complete, but Agent Null has escaped to the Black Forest. The Commandos have successfully defended Asgard using systematic security practices.
+The hunt is complete!
+
+[Get your certificate of completion](https://www.dockersecurity.io//workshop/jcon-europe-2026/certificate?issue=jcon-2026-final-mission) and share your achievement on social media with the hashtag #DockerCommandos!
+
+Agent Null has escaped to the Black Forest. The Commandos have successfully defended Asgard using systematic security practices.
 
 ![10 Docker Commandos in Asgard](https://dockersecurity.io/blog-img/10-commandos-asgard.png)
 

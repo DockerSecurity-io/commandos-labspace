@@ -25,18 +25,18 @@ cosign generate-key-pair
 Sign the image you pushed to the registry earlier:
 
 ```bash
-cosign sign --key cosign.key $DOCKER_USERNAME/flask-server:latest
+cosign sign --key cosign.key $DOCKER_USERNAME/flask-server:attest
 ```
 
 Verify the signature:
 
 ```bash
-cosign verify --key cosign.pub $DOCKER_USERNAME/flask-server:latest
+cosign verify --key cosign.pub $DOCKER_USERNAME/flask-server:attest
 ```
 
 ## Cosign SBOM Attestations
 
-In exercise 4.1, we built the `cpp-hello` image with BuildKit SBOM attestations and saved the SBOM locally.
+In previous sections, we built the `cpp-hello` image locally. Now, let's push it to your Docker Hub registry so we can sign it and attach attestations.
 
 Let's go to the `cpp` directory:
 
@@ -44,7 +44,13 @@ Let's go to the `cpp` directory:
 cd ~/project/cpp
 ```
 
-If the SBOM file is not there, build the image again with the `local` output format:
+Build and push the image:
+
+```bash
+docker build -t $DOCKER_USERNAME/cpp-hello:latest --push .
+```
+
+Now, let's generate the SBOM locally so we can attach it as an attestation:
 
 ```bash
 docker buildx build \
@@ -52,37 +58,37 @@ docker buildx build \
   --output type=local,dest=out .
 ```
 
-Now, let's attach the SBOM attestation to the image:
+### Signing the Image
+
+First, let's sign the image itself:
 
 ```bash
-docker scout attestation add \
-    --file out/sbom.spdx.json \
-    $DOCKER_USERNAME/flask-server:latest
+cosign sign --key ../cosign-keys/cosign.key $DOCKER_USERNAME/cpp-hello:latest
 ```
 
-Now, let's sign the SBOM attestation with Cosign:
+### Attesting the SBOM
+
+Instead of using Docker Scout, we will use Cosign to attach the SBOM as an OCI 1.1 attestation. This command both signs the SBOM and attaches it to the image in the registry:
 
 ```bash
-cosign sign --key ../cosign-keys/cosign.key \
-    --type attestation \
-    --predicate-type https://spdx.dev/ \
-    $DOCKER_USERNAME/flask-server:latest
+cosign attest --key ../cosign-keys/cosign.key \
+    --type spdx \
+    --predicate out/sbom.spdx.json \
+    $DOCKER_USERNAME/cpp-hello:latest
 ```
 
-> [!NOTE]
-> Cosign will ask you to use the image SHA256 digest instead of the image tag.
+### Verifying with ORAS
 
-Now, let's check the OCI Referrers for the image:
+Now, let's use `oras` to verify that the attestations and signatures are correctly linked to the image as referrers:
 
 ```bash
-oras pull --include-subject $DOCKER_USERNAME/flask-server:latest
-oras discover $DOCKER_USERNAME/flask-server:latest --platform linux/amd64
+oras discover $DOCKER_USERNAME/cpp-hello:latest
 ```
 
-If you're building on Apple Silicon, make sure to specify the platform when pulling the image:
+If you are on an ARM-based machine (like Apple Silicon) and the image was built for a different platform, you might need to specify it:
 
 ```bash
-oras pull --include-subject --platform linux/amd64 $DOCKER_USERNAME/flask-server:latest
+oras discover $DOCKER_USERNAME/cpp-hello:latest --platform linux/amd64
 ```
 
 ## Exercises
