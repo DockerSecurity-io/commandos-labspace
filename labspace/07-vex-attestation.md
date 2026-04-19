@@ -19,7 +19,7 @@ Then build the image once more with SBOM and provenance attestations:
 ```bash
 docker build \
     --sbom=true \
-    --province=true \
+    --provenance=true \
     -t $DOCKER_USERNAME/flask-server:attest \
     --push .
 ```

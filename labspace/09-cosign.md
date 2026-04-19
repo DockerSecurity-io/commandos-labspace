@@ -58,38 +58,36 @@ docker buildx build \
   --output type=local,dest=out .
 ```
 
-### Signing the Image
+Two SBOM files will be generated in the `out` directory. The one we care about is `sbom-build.spdx.json`, which contains the build stage dependencies. The other one, `sbom.spdx.json`, only contains the final stage dependencies, which are empty in this case because we used `FROM scratch` in the final stage.
+
+We want to attest the `sbom-build.spdx.json` file to the image, so that it travels with the image and can be verified by consumers.
 
 First, let's sign the image itself:
 
 ```bash
-cosign sign --key ../cosign-keys/cosign.key $DOCKER_USERNAME/cpp-hello:latest
+export IMAGE_DIGEST=$(docker inspect --format='{{index .RepoDigests 0}}' $DOCKER_USERNAME/cpp-hello:latest)
+cosign sign --key ../cosign-keys/cosign.key $IMAGE_DIGEST
 ```
 
-### Attesting the SBOM
-
-Instead of using Docker Scout, we will use Cosign to attach the SBOM as an OCI 1.1 attestation. This command both signs the SBOM and attaches it to the image in the registry:
+Now let's attest the SBOM file to the image. We will use the `spdxjson` predicate type, which is compatible with the SPDX SBOM format that BuildKit generates:
 
 ```bash
 cosign attest --key ../cosign-keys/cosign.key \
-    --type spdx \
-    --predicate out/sbom.spdx.json \
-    $DOCKER_USERNAME/cpp-hello:latest
+    --type spdxjson \
+    --predicate out/sbom-build.spdx.json \
+    $IMAGE_DIGEST
 ```
 
-### Verifying with ORAS
-
-Now, let's use `oras` to verify that the attestations and signatures are correctly linked to the image as referrers:
+To verify the attestation is there and correctly linked to the image, we use `oras`, which is a tool for working with OCI artifacts and their referrers (attestations):
 
 ```bash
-oras discover $DOCKER_USERNAME/cpp-hello:latest
+oras discover docker.io/$IMAGE_DIGEST
 ```
 
-If you are on an ARM-based machine (like Apple Silicon) and the image was built for a different platform, you might need to specify it:
+The output should show a tree where the image digest is the root, and the Cosign bundle (containing your signature and SBOM attestation) is listed as a referrer. It verifies that the SBOM attestation is correctly linked to the image and signed by you.
 
-```bash
-oras discover $DOCKER_USERNAME/cpp-hello:latest --platform linux/amd64
-```
+> [!NOTE]
+> This is promise of the workshop: to have a signed SBOM attestation that includes dependencies also from the build stage. BuildKit can't sign the image, and Cosign can't generate the SBOM.
 
 ## Exercises
 
