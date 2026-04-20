@@ -1,6 +1,6 @@
 # Docker Commandos Labspace
 
-This repository contains the content and configuration for the **Docker Commandos: Asgard Mission** labspace. This labspace is designed to be run in interactive environments similar to Killercoda.
+This repository contains the content and configuration for the **Docker Commandos: Asgard Mission** labspace. Learn more at [dockersecurity.io/commandos](https://www.dockersecurity.io/commandos). This labspace is designed to be run in interactive environments similar to Killercoda.
 
 ## Structure
 

@@ -38,11 +38,11 @@ jq . sbom.spdx.json | less
 - 2.2. Compare different base images:
 
     ```bash
-    docker scout sbom node:22 --format list
+    docker scout sbom node:25 --format list
     ```
   
     Versus:
 
     ```bash
-    docker scout sbom node:22-alpine --format list
+    docker scout sbom node:25-alpine --format list
     ```

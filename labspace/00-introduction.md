@@ -4,7 +4,7 @@ Welcome to the **Docker Commandos** workshop. In this mission, you will join an 
 
 ![Docker Commandos](https://dockersecurity.io/blog-img/commandos-v5.png)
 
-From left to right:x
+From left to right:
 
 - **Agent Null** 🎭 - The masked hunter
 - **Wilhelmina (Mina)** 🧛‍♀️ - The undead assassin

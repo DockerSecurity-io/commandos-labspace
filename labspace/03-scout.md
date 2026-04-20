@@ -20,14 +20,14 @@ Try comparing base images for security:
 
 ```bash
 # Standard Node image
-docker scout cves node:20
+docker scout cves node:25
 ```
 
 Versus:
 
 ```bash
 # Alpine Node image
-docker scout cves node:20-alpine
+docker scout cves node:25-alpine
 ```
 
 Which one has fewer vulnerabilities?

@@ -6,10 +6,7 @@ IMAGES := \
 	dhi.io/node:25 \
 	dhi.io/node:25-dev \
 	node:25 \
-	node:20 \
-	node:20-alpine \
-	node:22 \
-	node:22-alpine \
+	node:25-alpine \
 	debian:bookworm-slim
 
 check:

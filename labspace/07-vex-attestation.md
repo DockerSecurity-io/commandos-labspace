@@ -89,8 +89,8 @@ VEX attestations we created here were Scout-specific. The SBOM attestations we c
 Let's check the OCI Referrers for a Docker Hardened Image:
 
 ```bash
-oras pull --include-subject dhi.io/node:20 
-oras discover dhi.io/node:20 --platform linux/amd64
+oras pull --include-subject dhi.io/node:25 
+oras discover dhi.io/node:25 --platform linux/amd64
 ```
 
 The output lists the SBOM and VEX attestations for the image, as well as their signatures.

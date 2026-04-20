@@ -1,6 +1,6 @@
 # Docker Commandos v1.5: Asgard Mission
 
-This repository contains the source code and resources for the **10 Docker Commandos** workshop at Rabobank in March 2026. The workshop will cover the following topics:
+This repository contains the source code and resources for the **10 Docker Commandos** workshop. Learn more at [dockersecurity.io/commandos](https://www.dockersecurity.io/commandos). The workshop covers the following topics:
 
 - 1️⃣ [Docker Init](#commando-1-docker-init)
 - 2️⃣ [SBOM](#commando-2-sbom)
@@ -63,15 +63,6 @@ Meet your team:
 ## Prerequisites
 
 Before starting the journey, check [installation instructions](installation.md) to setup Docker Desktop, CLI tools, and pull the necessary images.
-
-## Setup
-
-Clone the workshop repository:
-
-```bash
-git clone https://github.com/DockerSecurity-io/commandos-v1.5
-cd commandos-v1.5
-```
 
 ## Prologue: The Attack on Asgard
 
@@ -211,7 +202,7 @@ It will say there are no packages in the image, because the image is built from 
 ### Exercises
 
 - 2.1. Use `docker sbom --help` to check available formats for the SBOM output.
-- 2.2. Compare different base images: `docker sbom node:22` vs `docker sbom node:22-alpine` - which has fewer packages?
+- 2.2. Compare different base images: `docker sbom node:25` vs `docker sbom node:25-alpine` - which has fewer packages?
 
 ---
 
@@ -243,10 +234,10 @@ Try comparing base images for security:
 
 ```bash
 # Standard Node image
-docker scout cves node:20
+docker scout cves node:25
 
 # Alpine Node image
-docker scout cves node:20-alpine
+docker scout cves node:25-alpine
 
 # Which is more secure?
 ```
@@ -597,8 +588,8 @@ VEX attestations for DHI images reduce the noise for CVEs that are not a threat,
 To check the OCI referrers for an image, one can use the `oras` CLI tool:
 
 ```bash
-oras pull --include-subject dhi.io/node:20 
-oras discover dhi.io/node:20 --platform linux/amd64
+oras pull --include-subject dhi.io/node:25 
+oras discover dhi.io/node:25 --platform linux/amd64
 ```
 
 The output will list all sorts of OCI referrers, including the VEX attestations, SBOMs, provenance, and their signatures by Cosign.
